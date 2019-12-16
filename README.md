@@ -1,4 +1,4 @@
-[![Ripple Alpha Logo](https://github.com/ripple-alpha-dev/ripple-alpha-core/blob/master/docs/images/logo_ripple_alpha.png "Ripple Alpha")](https://ripplealpha.com)
+[![Ripple Alpha Logo](https://github.com/ripple-alpha/ripple-alpha-core/blob/master/docs/images/logo_ripple_alpha.png "Ripple Alpha")](https://ripplealpha.com)
 
 Ripple alpha is a digital currency derived based on Ripple. Ripple alpha is also known as XLA Ledger. Its mission is to apply this digital currency  the worldwide through the construction of a simplified global currency and highly secured financial infrastructure.
 
