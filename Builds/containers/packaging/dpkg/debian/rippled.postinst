@@ -1,8 +1,8 @@
 #!/bin/sh
 set -e
 
-USER_NAME=rippled
-GROUP_NAME=rippled
+USER_NAME=ripple-alpha-core
+GROUP_NAME=ripple-alpha-core
 case "$1" in
     configure)
         id -u $USER_NAME >/dev/null 2>&1 || \
@@ -12,12 +12,12 @@ case "$1" in
             --group "$GROUP_NAME"
         chown -R $USER_NAME:$GROUP_NAME /var/log/rippled/
         chown -R $USER_NAME:$GROUP_NAME /var/lib/rippled/
-        chown -R $USER_NAME:$GROUP_NAME /opt/ripple
+        chown -R $USER_NAME:$GROUP_NAME /opt/ripple-alpha
         chmod 755 /var/log/rippled/
         chmod 755 /var/lib/rippled/
-        chmod 644 /opt/ripple/etc/update-rippled-cron
+        chmod 644 /opt/ripple-alpha/etc/update-rippled-cron
         chmod 644 /etc/logrotate.d/rippled
-        chown -R root:$GROUP_NAME /opt/ripple/etc/update-rippled-cron
+        chown -R root:$GROUP_NAME /opt/ripple-alpha/etc/update-rippled-cron
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

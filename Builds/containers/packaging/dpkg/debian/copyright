@@ -1,5 +1,5 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: rippled
+Upstream-Name: ripple-alpha-core
 Source: https://github.com/ripple-alpha/ripple-alpha-core 
 
 Files: *

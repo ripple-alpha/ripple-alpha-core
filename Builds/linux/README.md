@@ -1,10 +1,7 @@
-# Linux Build Instructions
+# Linux Build and Run Instructions
 
-This document focuses on building rippled for development purposes under recent
-Ubuntu linux distributions. To build rippled for Redhat, Fedora or Centos
-builds, including docker based builds for those distributions, please consult
-the [rippled-package-builder](https://github.com/ripple/rippled-package-builder)
-repository. 
+This document focuses on building ripple-alpha-core for development purposes under recent
+Ubuntu linux distributions. 
 
 Note: Ubuntu 16.04 users may need to update their compiler (see the dependencies
 section). For non Ubuntu distributions, the steps below should work be
@@ -18,45 +15,45 @@ gcc-7 or later is required.
 Use `apt-get` to install the dependencies provided by the distribution
 
 ```
-$ apt-get update
-$ apt-get install -y gcc g++ wget git cmake protobuf-compiler libprotobuf-dev libssl-dev
+$ sudo apt-get update
+$ sudo apt-get install -y gcc g++ wget git cmake protobuf-compiler libprotobuf-dev libssl-dev
 ```
 
 Advanced users can choose to install newer versions of gcc, or the clang compiler.
-At this time, rippled only supports protobuf version 2. Using version 3 of 
+At this time, ripple-alpha-core only supports protobuf version 2. Using version 3 of 
 protobuf will give errors.
 
 ### Build Boost
 
-Boost 1.70 or later is required. We recommend downloading and compiling boost
+Boost 1.71 or later is required. We recommend downloading and compiling boost
 with the following process: After changing to the directory where
 you wish to download and compile boost, run
 
 ``` 
-$ wget https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.gz
-$ tar -xzf boost_1_70_0.tar.gz
-$ cd boost_1_70_0
+$ wget https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.gz
+$ tar -xzf boost_1_71_0.tar.gz
+$ cd boost_1_71_0
 $ ./bootstrap.sh
 $ ./b2 headers
-$ ./b2 -j<Num Parallel>
+$ ./b2 -j 4
 ```
 
 ### (Optional) Dependencies for Building Source Documentation
 
-Source code documentation is not required for running/debugging rippled. That
+Source code documentation is not required for running/debugging ripple-alpha-core. That
 said, the documentation contains some helpful information about specific
 components of the application. For more information on how to install and run
 the necessary components, see [this document](../../docs/README.md)
 
 ## Build
 
-### Clone the rippled repository
+### Clone the ripple-alpha-core repository
 
 From a shell:
 
 ```
-git clone git@github.com:ripple/rippled.git
-cd rippled
+git clone git@github.com:ripple-alpha/ripple-alpha-core.git
+cd ripple-alpha-core
 ```
 
 For a stable release, choose the `master` branch or one of the tagged releases
@@ -66,38 +63,26 @@ listed on [GitHub](https://github.com/ripple-alpha/ripple-alpha-core/releases).
 git checkout master
 ```
 
-or to test the latest release candidate, choose the `release` branch.
-
-```
-git checkout release
-```
-
-If you are doing development work and want the latest set of untested
-features, you can consider using the `develop` branch instead.
-
-```
-git checkout develop
-```
-
 ### Configure Library Paths
 
 If you didn't persistently set the `BOOST_ROOT` environment variable to the
 directory in which you compiled boost, then you should set it temporarily.
 
-For example, you built Boost in your home directory `~/boost_1_70_0`, you
+For example, you built Boost in your home directory `~/boost_1_71_0`, you
 would do for any shell in which you want to build:
 
 ```
-export BOOST_ROOT=~/boost_1_70_0
+export BOOST_ROOT=~/boost_1_71_0
+source ~/.profile
 ```
 
-Alternatively, you can add `DBOOST_ROOT=~/boost_1_70_0` to the command line when
+Alternatively, you can add `DBOOST_ROOT=~/boost_1_71_0` to the command line when
 invoking `cmake`.
 
 ### Generate Configuration
 
 All builds should be done in a separate directory from the source tree root 
-(a subdirectory is fine). For example, from the root of the ripple source tree:
+(a subdirectory is fine). For example, from the root of the ripple-alpha-core source tree:
 
 ```
 mkdir my_build
@@ -155,15 +140,15 @@ the `-j` parameter in this example tells the build tool to compile several
 files in parallel. This value should be chosen roughly based on the number of
 cores you have available and/or want to use for building.
 
-When the build completes succesfully, you will have a `rippled` executable in
+When the build completes succesfully, you will have a `ripple-alpha-core` executable in
 the current directory, which can be used to connect to the network (when
 properly configured) or to run unit tests.
 
 
 #### Optional Installation
 
-The rippled cmake build supports an installation target that will install
-rippled as well as a support library that can be used to sign transactions. In
+The ripple-alpha-core cmake build supports an installation target that will install
+ripple-alpha-core as well as a support library that can be used to sign transactions. In
 order to build and install the files, specify the `install` target when
 building, e.g.:
 
@@ -185,54 +170,47 @@ DESTDIR=~/mylibs cmake --build . --target install -- -j <parallel jobs>
 in which case, the files would be installed in the `CMAKE_INSTALL_PREFIX` within
 the specified `DESTDIR` path.
 
-#### Signing Library
-
-If you want to use the signing support library to create an application, there
-are two simple mechanisms with cmake + git that facilitate this.
-
-With either option below, you will have access to a library from the
-rippled project that you can link to in your own project's CMakeLists.txt, e.g.:
-
-```
-target_link_libraries (my-signing-app Ripple::xrpl_core)
-```
-
-##### Option 1: git submodules + add_subdirectory
-
-First, add the rippled repo as a submodule to your project repo:
-
-```
-git submodule add -b master https://github.com/ripple-alpha/ripple-alpha-core.git vendor/rippled
-```
-
-change the `vendor/rippled` path as desired for your repo layout. Furthermore,
-change the branch name if you want to track a different rippled branch, such
-as `develop`.
-   
-Second, to bring this submodule into your project, just add the rippled subdirectory:
-
-```
-add_subdirectory (vendor/rippled)
-```
-    
-##### Option 2: installed rippled + find_package
-
-First, follow the "Optional Installation" instructions above to
-build and install the desired version of rippled.
-
-To make use of the installed files, add the following to your CMakeLists.txt file:
-
-```
-set (CMAKE_MODULE_PATH /opt/local/lib/cmake/ripple ${CMAKE_MODULE_PATH})
-find_package(Ripple REQUIRED)
-```
-
-change the `/opt/local` module path above to match your chosen installation prefix.
-
 ## Unit Tests (Recommended)
 
-`rippled` builds a set of unit tests into the server executable. To run these unit
-tests after building, pass the `--unittest` option to the compiled `rippled`
+`ripple-alpha-core` builds a set of unit tests into the server executable. To run these unit
+tests after building, pass the `--unittest` option to the compiled `ripple-alpha-core`
 executable. The executable will exit with summary info after running the unit tests.
 
+## Configure
 
+Complete the following configurations that are required for ripple-alpha-core to start up successfully. All other configuration is optional and can be tweaked after you have a working server.
+
+Create a copy of the example config file (assumes you're in the ripple-alpha-core folder already). Saving the config file to this location enables you to run ripple-alpha-core as a non-root user (recommended).
+
+```
+cd /path/to/ripple-alpha-core
+sudo mkdir -p /opt/ripple-alpha/etc/
+sudo cp cfg/ripple-alpha-core-example.cfg /opt/ripple-alpha/etc/ripple-alpha-core.cfg
+```
+
+Edit the config file to set necessary file paths. The user you plan to run ripple-alpha-core as must have write permissions to all of the paths you specify here.
+
+Set the [node_db]'s path to the location where you want to store the ledger database.
+
+Set the [database_path] to the location where you want to store other database data. (This includes an SQLite database with configuration data, and is typically one level above the [node_db] path field.)
+
+Set the [debug_logfile] to a path where ripple-alpha-core can write logging information.
+
+Copy the example validators.txt file to the same folder as ripple-alpha-core.cfg:
+```
+sudo cp cfg/validators-example.txt /opt/ripple-alpha/etc/validators.txt
+sudo mkdir -p /opt/ripple-alpha/bin/
+sudo mkdir -p /etc/opt/ripple/
+sudo cp -r my_build/ripple-alpha-core /opt/ripple-alpha/bin/
+sudo ln -s /opt/ripple-alpha/bin/ripple-alpha-core /usr/local/bin/ripple-alpha-core
+sudo ln -s /opt/ripple-alpha/etc/ripple-alpha-core.cfg /etc/opt/ripple/
+sudo ln -s /opt/ripple-alpha/etc/validators.txt /etc/opt/ripple/
+```
+
+## Run
+
+To run your stock ripple-alpha-core server from the executable you built, using the configurations you defined:
+
+```
+sudo ripple-alpha-core
+```

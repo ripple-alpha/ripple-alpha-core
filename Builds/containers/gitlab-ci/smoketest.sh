@@ -47,7 +47,7 @@ if [ "${pkgtype}" = "dpkg" ] ; then
         updateWithRetry
         # uncomment this next line if you want to see the available package versions
         # apt-cache policy rippled
-        apt-get -y install rippled=${dpkg_full_version}
+        apt-get -y install ripple-alpha-core=${dpkg_full_version}
     elif [ "${install_from}" = "local" ] ; then
         # cached pkg install
         updateWithRetry
@@ -87,13 +87,13 @@ else
 fi
 
 # verify installed version
-INSTALLED=$(/opt/ripple/bin/rippled --version | awk '{print $NF}')
+INSTALLED=$(/opt/ripple-alpha/bin/ripple-alpha-core --version | awk '{print $NF}')
 if [ "${rippled_version}" != "${INSTALLED}" ] ; then
     echo "INSTALLED version ${INSTALLED} does not match ${rippled_version}"
     exit 1
 fi
 # run unit tests
-/opt/ripple/bin/rippled --unittest --unittest-jobs $(nproc)
-/opt/ripple/bin/validator-keys --unittest
+/opt/ripple-alpha/bin/ripple-alpha-core --unittest --unittest-jobs $(nproc)
+/opt/ripple-alpha/bin/validator-keys --unittest
 
 

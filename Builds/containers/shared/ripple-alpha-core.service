@@ -1,0 +1,15 @@
+[Unit]
+Description=Ripple Daemon
+
+[Service]
+Type=simple
+ExecStart=sudo /opt/ripple-alpha/bin/ripple-alpha-core --net --silent --conf /opt/ripple-alpha/etc/ripple-alpha-core.cfg
+# Default KillSignal can be used if/when ripple-alpha-core handles SIGTERM
+KillSignal=SIGINT
+Restart=no
+User=ripple-alpha-core
+Group=ripple-alpha-core
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

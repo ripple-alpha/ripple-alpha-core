@@ -84,7 +84,7 @@ private:
             "http://207.261.33.37:8080/validators",
             "https://ripple.com/validators",
             "https://ripple.com:443/validators",
-            "file:///etc/opt/ripple/validators.txt",
+            "file:///etc/opt/ripple-alpha/validators.txt",
             "file:///C:/Lib/validators.txt"
 #if !_MSC_VER
             , "file:///"

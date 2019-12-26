@@ -18,15 +18,15 @@ if (process.argv[2] == null) {
    '',
    '  $ node bin/stop-test.js 5,10',
    ('  $ node bin/stop-test.js 1,4 ' +
-      'build/clang.debug/rippled $HOME/.confs/rippled.cfg')
+      'build/clang.debug/rippled $HOME/.confs/ripple-alpha-core.cfg')
    ]
       .forEach(function(l){console.log(l)});
 
   process.exit();
 } else {
   var testRange = process.argv[2].split(',').map(Number);
-  var rippledPath = process.argv[3] || 'build/rippled'
-  var rippledConf = process.argv[4] || 'rippled.cfg'
+  var rippledPath = process.argv[3] || 'build/ripple-alpha-core'
+  var rippledConf = process.argv[4] || 'ripple-alpha-core.cfg'
 }
 
 var options = {

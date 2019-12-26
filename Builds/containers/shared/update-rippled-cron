@@ -6,5 +6,5 @@ SHELL=/bin/bash
 PATH=/sbin;/bin;/usr/sbin;/usr/bin
 
 # invoke check/update script with random delay up to 59 mins
-0 * * * * root sleep $((RANDOM*3540/32768)) && /opt/ripple/bin/update-rippled.sh
+0 * * * * root sleep $((RANDOM*3540/32768)) && /opt/ripple-alpha/bin/update-rippled.sh
 

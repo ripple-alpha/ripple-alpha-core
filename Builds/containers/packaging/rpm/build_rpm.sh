@@ -30,7 +30,7 @@ if [[ -n $(git status --porcelain) ]]; then
     git status
     error "Unstaged changes in this repo - please commit first"
 fi
-git archive --format tar.gz --prefix rippled/ -o ../rpmbuild/SOURCES/rippled.tar.gz HEAD
+git archive --format tar.gz --prefix ripple-alpha-core/ -o ../rpmbuild/SOURCES/rippled.tar.gz HEAD
 # TODO include validator-keys sources
 cd ..
 

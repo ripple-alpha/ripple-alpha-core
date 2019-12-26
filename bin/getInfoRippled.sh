@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-rippled_exe=/opt/ripple/bin/rippled
-conf_file=/etc/opt/ripple/rippled.cfg
+rippled_exe=/opt/ripple-alpha/bin/ripple-alpha-core
+conf_file=/etc/opt/ripple-alpha/ripple-alpha-core.cfg
 
 while getopts ":e:c:" opt; do
     case $opt in
@@ -57,7 +57,7 @@ exec 3>&1 1>>${log_file} 2>&1
 
 if [[ -x ${rippled_exe} ]]
 then
-    pgrep rippled && \
+    pgrep ripple-alpha && \
     ${rippled_exe} --conf ${conf_file} \
     -- server_info                  > ${tmp_loc}/server_info.txt
 fi

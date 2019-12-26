@@ -46,7 +46,7 @@ db/*.db-*
 debug_log.txt
 
 # Ignore customized configs
-rippled.cfg
+ripple-alpha-core.cfg
 validators.txt
 
 # Doxygen generated documentation output

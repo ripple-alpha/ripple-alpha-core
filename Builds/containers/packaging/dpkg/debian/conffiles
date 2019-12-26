@@ -1,3 +1,3 @@
-opt/ripple/etc/rippled.cfg
-opt/ripple/etc/validators.txt
+opt/ripple-alpha/etc/ripple-alpha-core.cfg
+opt/ripple-alpha/etc/validators.txt
 etc/logrotate.d/rippled

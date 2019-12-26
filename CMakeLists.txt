@@ -17,7 +17,7 @@ if (target)
     "The target option is deprecated and will be removed in a future release")
   parse_target()
 endif ()
-project (rippled)
+project (ripple-alpha-core)
 
 if (POLICY CMP0074)
   cmake_policy(SET CMP0074 NEW)

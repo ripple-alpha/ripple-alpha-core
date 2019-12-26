@@ -339,7 +339,7 @@ install (
   DESTINATION include/beast/unit_test/detail)
 
 #[===================================================================[
-   rippled executable
+   ripple-alpha-core executable
 #]===================================================================]
 
 #[=========================================================[
@@ -347,9 +347,9 @@ install (
    versions of cmake happy. cmake 3.10+ allows
    add_executable with no sources
 #]=========================================================]
-add_executable (rippled src/ripple/app/main/Application.h)
+add_executable (ripple-alpha-core src/ripple/app/main/Application.h)
 if (unity)
-  target_sources (rippled PRIVATE
+  target_sources (ripple-alpha-core PRIVATE
     #[===============================[
        unity, main sources
     #]===============================]
@@ -406,7 +406,7 @@ if (unity)
     src/test/unity/jtx_unity2.cpp
     src/test/unity/csf_unity.cpp)
 else ()
-  target_sources (rippled PRIVATE
+  target_sources (ripple-alpha-core PRIVATE
     #[===============================[
        nounity, main sources:
          subdir: app
@@ -1012,14 +1012,14 @@ else ()
     #]===============================]
     src/test/unit_test/multi_runner.cpp)
 endif ()
-target_link_libraries (rippled
+target_link_libraries (ripple-alpha-core
   Ripple::boost
   Ripple::opts
   Ripple::libs
   Ripple::xrpl_core)
-exclude_if_included (rippled)
+exclude_if_included (ripple-alpha-core)
 # define a macro for tests that might need to
 # be exluded or run differently in CI environment
 if (is_ci)
-  target_compile_definitions(rippled PRIVATE RIPPLED_RUNNING_IN_CI)
+  target_compile_definitions(ripple-alpha-core PRIVATE RIPPLED_RUNNING_IN_CI)
 endif ()

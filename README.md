@@ -17,13 +17,13 @@ Ripple Alpha is released under the terms of the ISC license. See [License](LICEN
 Repository Contents
 ---------------------
 
-| Folder     | Contents                                         |
-|:-----------|:-------------------------------------------------|
-| `./bin`    | Scripts and data files for Ripple Alpha integrators.   |
-| `./Builds` | Platform-specific guides for building `rippled`. |
-| `./docs`   | Source documentation files and doxygen config.   |
-| `./cfg`    | Example configuration files.                     |
-| `./src`    | Source code.                                     |
+| Folder     | Contents                                                   |
+|:-----------|:-------------------------------------------------          |
+| `./bin`    | Scripts and data files for Ripple Alpha integrators.       |
+| `./Builds` | Platform-specific guides for building `ripple-alpha-core`. |
+| `./docs`   | Source documentation files and doxygen config.             |
+| `./cfg`    | Example configuration files.                               |
+| `./src`    | Source code.                                               |
 
 Others
 ---------------------

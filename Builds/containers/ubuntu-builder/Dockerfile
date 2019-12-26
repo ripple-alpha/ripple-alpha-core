@@ -32,7 +32,7 @@ WORKDIR /opt/rippled_bld/pkg
 
 COPY packaging/dpkg/debian /opt/rippled_bld/pkg/debian/
 COPY shared/update_sources.sh ./
-COPY shared/rippled.service /opt/rippled_bld/pkg/debian/
+COPY shared/ripple-alpha-core.service /opt/rippled_bld/pkg/debian/
 
 COPY packaging/dpkg/build_dpkg.sh ./
 RUN update-alternatives --set gcc /usr/bin/gcc-8

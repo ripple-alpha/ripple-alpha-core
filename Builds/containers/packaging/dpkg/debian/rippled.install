@@ -1,7 +1,7 @@
-opt/ripple/bin/rippled
-opt/ripple/bin/validator-keys
-opt/ripple/bin/update-rippled.sh
-opt/ripple/etc/rippled.cfg
-opt/ripple/etc/validators.txt
-opt/ripple/etc/update-rippled-cron
+opt/ripple-alpha/bin/ripple-alpha-core
+opt/ripple-alpha/bin/validator-keys
+opt/ripple-alpha/bin/update-rippled.sh
+opt/ripple-alpha/etc/ripple-alpha-core.cfg
+opt/ripple-alpha/etc/validators.txt
+opt/ripple-alpha/etc/update-rippled-cron
 etc/logrotate.d/rippled

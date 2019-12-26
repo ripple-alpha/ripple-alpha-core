@@ -49,7 +49,7 @@ if (is_root_project)
         Builds/containers/centos-builder/centos_setup.sh
         Builds/containers/centos-builder/extras.sh
         Builds/containers/shared/build_deps.sh
-        Builds/containers/shared/rippled.service
+        Builds/containers/shared/ripple-alpha-core.service
         Builds/containers/shared/update_sources.sh
         Builds/containers/shared/update-rippled.sh
         Builds/containers/packaging/rpm/rippled.spec
@@ -60,7 +60,7 @@ if (is_root_project)
       docker run
         -e NIH_CACHE_ROOT=/opt/rippled_bld/pkg/.nih_c
         -v ${NIH_CACHE_ROOT}/pkgbuild:/opt/rippled_bld/pkg/.nih_c
-        -v ${CMAKE_SOURCE_DIR}:/opt/rippled_bld/pkg/rippled
+        -v ${CMAKE_SOURCE_DIR}:/opt/rippled_bld/pkg/ripple-alpha-core
         -v ${CMAKE_CURRENT_BINARY_DIR}/packages:/opt/rippled_bld/pkg/out
         "$<$<BOOL:${map_user}>:--volume=/etc/passwd:/etc/passwd;--volume=/etc/group:/etc/group;--user=${DOCKER_USER_ID}:${DOCKER_GROUP_ID}>"
         -t rippled-rpm-builder:${container_label}
@@ -97,7 +97,7 @@ if (is_root_project)
         Builds/containers/ubuntu-builder/Dockerfile
         Builds/containers/ubuntu-builder/ubuntu_setup.sh
         Builds/containers/shared/build_deps.sh
-        Builds/containers/shared/rippled.service
+        Builds/containers/shared/ripple-alpha-core.service
         Builds/containers/shared/update_sources.sh
         Builds/containers/shared/update-rippled.sh
         Builds/containers/packaging/dpkg/build_dpkg.sh
@@ -121,7 +121,7 @@ if (is_root_project)
       docker run
         -e NIH_CACHE_ROOT=/opt/rippled_bld/pkg/.nih_c
         -v ${NIH_CACHE_ROOT}/pkgbuild:/opt/rippled_bld/pkg/.nih_c
-        -v ${CMAKE_SOURCE_DIR}:/opt/rippled_bld/pkg/rippled
+        -v ${CMAKE_SOURCE_DIR}:/opt/rippled_bld/pkg/ripple-alpha-core
         -v ${CMAKE_CURRENT_BINARY_DIR}/packages:/opt/rippled_bld/pkg/out
         "$<$<BOOL:${map_user}>:--volume=/etc/passwd:/etc/passwd;--volume=/etc/group:/etc/group;--user=${DOCKER_USER_ID}:${DOCKER_GROUP_ID}>"
         -t rippled-dpkg-builder:${container_label}
@@ -169,7 +169,7 @@ if (is_root_project)
         Builds/containers/ubuntu-builder/Dockerfile
         Builds/containers/ubuntu-builder/ubuntu_setup.sh
         Builds/containers/shared/build_deps.sh
-        Builds/containers/shared/rippled.service
+        Builds/containers/shared/ripple-alpha-core.service
         Builds/containers/shared/update_sources.sh
         Builds/containers/shared/update-rippled.sh
     )

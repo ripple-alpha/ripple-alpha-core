@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# auto-update script for rippled daemon
+# auto-update script for ripple-alpha-core daemon
 
 # Check for sudo/root permissions
 if [[ $(id -u) -ne 0 ]] ; then
@@ -9,7 +9,7 @@ if [[ $(id -u) -ne 0 ]] ; then
 fi
 
 LOCKDIR=/tmp/rippleupdate.lock
-UPDATELOG=/var/log/rippled/update.log
+UPDATELOG=/var/log/ripple/update.log
 
 function cleanup {
   # If this directory isn't removed, future updates will fail.
@@ -31,20 +31,20 @@ if [[ "$ID" == "ubuntu" || "$ID" == "debian" ]] ; then
   apt-get update -qq
 
   # The next line is an "awk"ward way to check if the package needs to be updated.
-  RIPPLE=$(apt-get install -s --only-upgrade rippled | awk '/^Inst/ { print $2 }')
-  test "$RIPPLE" == "rippled" && can_update=true
+  RIPPLE=$(apt-get install -s --only-upgrade ripple-alpha-core | awk '/^Inst/ { print $2 }')
+  test "$RIPPLE" == "ripple-alpha-core" && can_update=true
 
   function apply_update {
-    apt-get install rippled -qq
+    apt-get install ripple-alpha-core -qq
   }
 elif [[ "$ID" == "fedora" || "$ID" == "centos" || "$ID" == "rhel" || "$ID" == "scientific" ]] ; then
   RIPPLE_REPO=${RIPPLE_REPO-stable}
   yum --disablerepo=* --enablerepo=ripple-$RIPPLE_REPO clean expire-cache
 
-  yum check-update -q --enablerepo=ripple-$RIPPLE_REPO rippled || can_update=true
+  yum check-update -q --enablerepo=ripple-$RIPPLE_REPO ripple-alpha-core || can_update=true
 
   function apply_update {
-    yum update -y --enablerepo=ripple-$RIPPLE_REPO rippled
+    yum update -y --enablerepo=ripple-$RIPPLE_REPO ripple-alpha-core
   }
 else
   echo "unrecognized distro!"
@@ -57,8 +57,8 @@ if [ "$can_update" = true ] ; then
   set -e
   apply_update
   systemctl daemon-reload
-  systemctl restart rippled.service
-  echo $(date -u) "rippled daemon updated."
+  systemctl restart ripple-alpha-core.service
+  echo $(date -u) "ripple-alpha-core daemon updated."
 else
   echo $(date -u) "no updates available" >> $UPDATELOG
 fi

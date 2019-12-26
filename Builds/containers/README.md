@@ -1,10 +1,10 @@
 
-# rippled Packaging and Containers
+# ripple-alpha-core Packaging and Containers
 
 This folder contains docker container definitions and configuration
-files to support building rpm and deb packages of rippled. The container
+files to support building rpm and deb packages of ripple-alpha-core. The container
 definitions include some additional software/packages that are used
-for general build/test CI workflows of rippled but are not explicitly
+for general build/test CI workflows of ripple-alpha-core but are not explicitly
 needed for the package building workflow.
 
 ## CMake Targets
@@ -18,7 +18,7 @@ on hardware specs), so quick build cycles are not possible currently. As
 such, these targets are often best suited to CI/automated build systems.
 
 The package build can be invoked like any other cmake target from the 
-rippled root folder:
+ripple-alpha-core root folder:
 ```
 mkdir -p build/pkg && cd build/pkg
 cmake -Dpackages_only=ON ../..

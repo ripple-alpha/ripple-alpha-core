@@ -11,6 +11,6 @@ To run the tip of active development:
 
 ```$ docker run -P -v /srv/rippled/ ripple/rippled:develop```
 
-Where ```/srv/rippled``` points to a directory containing a rippled.cfg and
+Where ```/srv/rippled``` points to a directory containing a ripple-alpha-core.cfg and
 database files. By default, port 5005/tcp maps to the RPC port and 51235/udp to
 the peer port.

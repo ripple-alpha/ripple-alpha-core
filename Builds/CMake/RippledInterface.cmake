@@ -1,5 +1,5 @@
 #[===================================================================[
-   rippled compile options/settings via an interface library
+   ripple-alpha-core compile options/settings via an interface library
 #]===================================================================]
 
 add_library (opts INTERFACE)
@@ -70,7 +70,7 @@ if (san)
 endif ()
 
 #[===================================================================[
-   rippled transitive library deps via an interface library
+   ripple-alpha-core transitive library deps via an interface library
 #]===================================================================]
 
 add_library (ripple_syslibs INTERFACE)
