@@ -59,6 +59,12 @@
 #          do not sufficiently overlap with the list(s) used by others.
 #          See: https://arxiv.org/pdf/1802.07242.pdf
 
+[validators]
+nHUgppGqnnk7YYw41xbatujNySFo35g5DtvZ21NZUKtLPRMM9ZDZ
+nHUDrvwKfbBkuXgv9hYYihCNMWVdwLjNmRm2uCJwUJ3uTQnQ93ib
+nHUcJaZ2P9uygNiWHHhhj6sH3fXo7oirhRrimVPu1cW7MXEQfNmq
+nHUcJaZ2P9uygNiWHHhhj6sH3fXo7oirhRrimVPu1cW7MXEQfNmq
+
 #[validator_list_sites]
 # https://vl.ripple.com
 
