@@ -46,7 +46,7 @@ admin = 127.0.0.1, ::1
 protocol = https
 
 [port_peer]
-port = 51235
+port = 51236
 ip = 0.0.0.0
 protocol = peer
 
@@ -98,7 +98,8 @@ pool.ntp.org
 # Where to find some other servers speaking the Ripple protocol.
 #
 [ips]
-r.ripple.com 51235
+50.17.35.167 51236
+52.206.98.139 51236
 
 # Turn down default logging to save disk space in the long run.
 # Valid values here are trace, debug, info, warning, error, and fatal
@@ -762,12 +763,12 @@ trustthesevalidators.gov
     # indented comment
 )" "\x20\x20" R"(
 [ips])" "\x20" R"(
-r.ripple.com 51235
+50.17.35.167 51236
+52.206.98.139 51236
 
   [ips_fixed])" "\x20\x20" R"(
     # COMMENT
-    s1.ripple.com 51235
-    s2.ripple.com 51235
+    s1.ripplealpha.com 51236
 
 )");
         cfg.loadFromString (toLoad);

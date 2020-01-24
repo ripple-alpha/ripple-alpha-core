@@ -199,12 +199,18 @@ Set the [debug_logfile] to a path where ripple-alpha-core can write logging info
 Copy the example validators.txt file to the same folder as ripple-alpha-core.cfg:
 ```
 sudo cp cfg/validators-example.txt /opt/ripple-alpha/etc/validators.txt
+```
+
+Create symbolic links and create user.
+```
+sudo useradd ripple-alpha-core
 sudo mkdir -p /opt/ripple-alpha/bin/
-sudo mkdir -p /etc/opt/ripple/
+sudo mkdir -p /etc/opt/ripple-alpha/
 sudo cp -r my_build/ripple-alpha-core /opt/ripple-alpha/bin/
+sudo chown ripple-alpha-core:ripple-alpha-core /opt/ripple-alpha/bin/ripple-alpha-core 
 sudo ln -s /opt/ripple-alpha/bin/ripple-alpha-core /usr/local/bin/ripple-alpha-core
-sudo ln -s /opt/ripple-alpha/etc/ripple-alpha-core.cfg /etc/opt/ripple/
-sudo ln -s /opt/ripple-alpha/etc/validators.txt /etc/opt/ripple/
+sudo ln -s /opt/ripple-alpha/etc/ripple-alpha-core.cfg /etc/opt/ripple-alpha/
+sudo ln -s /opt/ripple-alpha/etc/validators.txt /etc/opt/ripple-alpha/
 ```
 
 ## Run

@@ -2,11 +2,11 @@
 
 ## Introduction
 
-The _Ripple payment network_ consists of a collection of _peers_ running
-**rippled**. Each peer maintains multiple outgoing connections and optional
+The _Ripple Alpha payment network_ consists of a collection of _peers_ running
+**ripple-alpha-core**. Each peer maintains multiple outgoing connections and optional
 incoming connections to other peers. These connections are made over both
 the public Internet and private local area networks. This network defines a
-fully connected directed graph of nodes where vertices are instances of rippled
+fully connected directed graph of nodes where vertices are instances of ripple-alpha-core
 and edges are persistent TCP/IP connections. Peers send and receive messages to
 other connected peers. This peer to peer network, layered on top of the public
 and private Internet, forms an [_overlay network_][overlay_network]. The
