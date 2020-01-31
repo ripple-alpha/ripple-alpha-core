@@ -1521,7 +1521,7 @@ public:
             BEAST_EXPECT(jrr[jss::error] == "srcIsrMalformed");
             BEAST_EXPECT(jrr[jss::error_message] ==
                 "Unneeded field 'taker_pays.issuer' "
-                "for XRP currency specification.");
+                "for XLA currency specification.");
         }
 
         {
@@ -1535,7 +1535,7 @@ public:
                 "json", "book_offers", to_string(jvParams)) [jss::result];
             BEAST_EXPECT(jrr[jss::error] == "srcIsrMalformed");
             BEAST_EXPECT(jrr[jss::error_message] ==
-                "Invalid field 'taker_pays.issuer', expected non-XRP issuer.");
+                "Invalid field 'taker_pays.issuer', expected non-XLA issuer.");
         }
 
         {
@@ -1606,7 +1606,7 @@ public:
             BEAST_EXPECT(jrr[jss::error] == "dstIsrMalformed");
             BEAST_EXPECT(jrr[jss::error_message] ==
                 "Invalid field 'taker_gets.issuer', "
-                "expected non-XRP issuer.");
+                "expected non-XLA issuer.");
         }
 
         {
@@ -1621,7 +1621,7 @@ public:
             BEAST_EXPECT(jrr[jss::error] == "dstIsrMalformed");
             BEAST_EXPECT(jrr[jss::error_message] ==
                 "Unneeded field 'taker_gets.issuer' "
-                "for XRP currency specification.");
+                "for XLA currency specification.");
         }
 
     }

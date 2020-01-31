@@ -2,6 +2,7 @@
 /*
     
     Copyright (c) 2014 Ripple Labs Inc.
+    Copyright (c) 2019 Ripple Alpha Association.
 
     Permission to use, copy, modify, and/or distribute this software for any
     purpose  with  or without fee is hereby granted, provided that the above
@@ -456,7 +457,7 @@ BasicTaker::do_cross (
         stream << "Available bridge funds:";
         stream << "  leg1 in: " << format_amount (leg1_in_funds);
         stream << " leg2 out: " << format_amount (leg2_out_funds);
-        stream << "      xrp: " << format_amount (xrp_funds);
+        stream << "      xla: " << format_amount (xrp_funds);
     }
 
     auto const leg1_rate = in_rate (owner1, account ());
@@ -594,7 +595,7 @@ TER Taker::redeemIOU (
     Issue const& issue)
 {
     if (isXRP (amount))
-        Throw<std::logic_error> ("Using redeemIOU with XRP");
+        Throw<std::logic_error> ("Using redeemIOU with XLA");
 
     if (account == issue.account)
         return tesSUCCESS;
@@ -622,7 +623,7 @@ TER Taker::issueIOU (
     Issue const& issue)
 {
     if (isXRP (amount))
-        Throw<std::logic_error> ("Using issueIOU with XRP");
+        Throw<std::logic_error> ("Using issueIOU with XLA");
 
     if (account == issue.account)
         return tesSUCCESS;

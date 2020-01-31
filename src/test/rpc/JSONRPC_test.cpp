@@ -414,8 +414,8 @@ R"({
     }
 })",
 {{
-"Cannot build XRP to XRP paths.",
-"Cannot build XRP to XRP paths.",
+"Cannot build XLA to XLA paths.",
+"Cannot build XLA to XLA paths.",
 "Missing field 'tx_json.Sequence'.",
 "Missing field 'tx_json.Sequence'."}}},
 

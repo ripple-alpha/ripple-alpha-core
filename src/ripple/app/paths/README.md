@@ -22,8 +22,8 @@ This is the **rippled** implementation; there are many other possible implementa
 2. Six degrees of separation.
  * If sending value through individual's account, expect no path to have more than six hops.
  * According to [Facebook studies](https://www.facebook.com/notes/facebook-data-team/anatomy-of-facebook/10150388519243859) as of late 2011, its users are separated by fewer than five steps.
- * By using XRP for bridging the most complicated path expected is usually:
- * source -> gateway -> XRP -> gateway -> destination
+ * By using XLA for bridging the most complicated path expected is usually:
+ * source -> gateway -> XLA -> gateway -> destination
 3. Pareto principle.
  * Good liquidity is often reusable.
  * Concentrate on the most liquid gateways to serve almost everybody.
@@ -89,7 +89,7 @@ High level of a payment
  * valid means "not malformed" and "can claim a fee" - the sending account has enough to cover the transaction fee.
 7. At ledger closing time, the transaction is applied by the transaction engine and the result is stored by changing the ledger and storing the tx metadata in that ledger.
 
-If you're sending and receiving XRP you don't need a path.
+If you're sending and receiving XLA you don't need a path.
 If the union of the default paths are sufficient, you don't need a path set (see below about default paths).
 The idea behind path sets is to provide sufficient liquidity in the face of a changing ledger.
 

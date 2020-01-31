@@ -2,6 +2,7 @@
 /*
     
     Copyright (c) 2012, 2013 Ripple Labs Inc.
+    Copyright (c) 2019 Ripple Alpha Association.
 
     Permission to use, copy, modify, and/or distribute this software for any
     purpose  with  or without fee is hereby granted, provided that the above
@@ -525,14 +526,11 @@ OverlayImpl::onPrepare()
     // servers to serve as bootstrap:
     if (bootstrapIps.empty ())
     {
-        // Pool of servers operated by Ripple Labs Inc. - https://ripple.com
-        bootstrapIps.push_back("r.ripple.com 51235");
-
-        // Pool of servers operated by Alloy Networks - https://www.alloy.ee
-        bootstrapIps.push_back("zaphod.alloy.ee 51235");
-        
-        // Pool of servers operated by ISRDC - https://isrdc.in
-        bootstrapIps.push_back("sahyadri.isrdc.in 51235");
+        bootstrapIps.push_back("50.17.35.167 51236");
+        bootstrapIps.push_back("52.206.98.139 51236");
+        bootstrapIps.push_back("3.211.71.73 51236");
+        bootstrapIps.push_back("3.212.86.22 51236");
+        bootstrapIps.push_back("3.226.85.22 51236");
     }
 
     m_resolver.resolve (bootstrapIps,

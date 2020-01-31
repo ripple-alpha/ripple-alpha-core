@@ -134,35 +134,35 @@ Payment::preflight (PreflightContext const& ctx)
     {
         // Consistent but redundant transaction.
         JLOG(j.trace()) << "Malformed transaction: " <<
-            "SendMax specified for XRP to XRP.";
+            "SendMax specified for XLA to XLA.";
         return temBAD_SEND_XLA_MAX;
     }
     if (bXRPDirect && bPaths)
     {
-        // XRP is sent without paths.
+        // XLA is sent without paths.
         JLOG(j.trace()) << "Malformed transaction: " <<
-            "Paths specified for XRP to XRP.";
+            "Paths specified for XLA to XLA.";
         return temBAD_SEND_XLA_PATHS;
     }
     if (bXRPDirect && partialPaymentAllowed)
     {
         // Consistent but redundant transaction.
         JLOG(j.trace()) << "Malformed transaction: " <<
-            "Partial payment specified for XRP to XRP.";
+            "Partial payment specified for XLA to XLA.";
         return temBAD_SEND_XLA_PARTIAL;
     }
     if (bXRPDirect && limitQuality)
     {
         // Consistent but redundant transaction.
         JLOG(j.trace()) << "Malformed transaction: " <<
-            "Limit quality specified for XRP to XRP.";
+            "Limit quality specified for XLA to XLA.";
         return temBAD_SEND_XLA_LIMIT;
     }
     if (bXRPDirect && !defaultPathsAllowed)
     {
         // Consistent but redundant transaction.
         JLOG(j.trace()) << "Malformed transaction: " <<
-            "No ripple direct specified for XRP to XRP.";
+            "No ripple direct specified for XLA to XLA.";
         return temBAD_SEND_XLA_NO_DIRECT;
     }
 
