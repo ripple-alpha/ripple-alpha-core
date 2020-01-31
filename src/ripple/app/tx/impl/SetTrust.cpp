@@ -2,6 +2,7 @@
 /*
     
     Copyright (c) 2012, 2013 Ripple Labs Inc.
+    Copyright (c) 2019 Ripple Alpha Association.
 
     Permission to use, copy, modify, and/or distribute this software for any
     purpose  with  or without fee is hereby granted, provided that the above
@@ -62,7 +63,7 @@ SetTrust::preflight (PreflightContext const& ctx)
     if (badCurrency() == saLimitAmount.getCurrency ())
     {
         JLOG(j.trace()) <<
-            "Malformed transaction: specifies XRP as IOU";
+            "Malformed transaction: specifies XLA as IOU";
         return temBAD_CURRENCY;
     }
 

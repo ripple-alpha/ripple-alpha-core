@@ -2,6 +2,7 @@
 /*
     
     Copyright (c) 2012-2014 Ripple Labs Inc.
+    Copyright (c) 2019 Ripple Alpha Association.
 
     Permission to use, copy, modify, and/or distribute this software for any
     purpose  with  or without fee is hereby granted, provided that the above
@@ -114,11 +115,11 @@ Json::Value doBookOffers (RPC::Context& context)
     if (isXRP (pay_currency) && ! isXRP (pay_issuer))
         return RPC::make_error (
             rpcSRC_ISR_MALFORMED, "Unneeded field 'taker_pays.issuer' for "
-            "XRP currency specification.");
+            "XLA currency specification.");
 
     if (!isXRP (pay_currency) && isXRP (pay_issuer))
         return RPC::make_error (rpcSRC_ISR_MALFORMED,
-            "Invalid field 'taker_pays.issuer', expected non-XRP issuer.");
+            "Invalid field 'taker_pays.issuer', expected non-XLA issuer.");
 
     AccountID get_issuer;
 
@@ -145,11 +146,11 @@ Json::Value doBookOffers (RPC::Context& context)
     if (isXRP (get_currency) && ! isXRP (get_issuer))
         return RPC::make_error (rpcDST_ISR_MALFORMED,
             "Unneeded field 'taker_gets.issuer' for "
-                               "XRP currency specification.");
+                               "XLA currency specification.");
 
     if (!isXRP (get_currency) && isXRP (get_issuer))
         return RPC::make_error (rpcDST_ISR_MALFORMED,
-            "Invalid field 'taker_gets.issuer', expected non-XRP issuer.");
+            "Invalid field 'taker_gets.issuer', expected non-XLA issuer.");
 
     boost::optional<AccountID> takerID;
     if (context.params.isMember (jss::taker))

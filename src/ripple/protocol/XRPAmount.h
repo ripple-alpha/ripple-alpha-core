@@ -2,6 +2,7 @@
 /*
     
     Copyright (c) 2012, 2013 Ripple Labs Inc.
+    Copyright (c) 2019 Ripple Alpha Association.
 
     Permission to use, copy, modify, and/or distribute this software for any
     purpose  with  or without fee is hereby granted, provided that the above
@@ -159,7 +160,7 @@ mulRatio (
             r -= 1;
     }
     if (r > std::numeric_limits<std::int64_t>::max ())
-        Throw<std::overflow_error> ("XRP mulRatio overflow");
+        Throw<std::overflow_error> ("XLA mulRatio overflow");
     return XRPAmount (r.convert_to<std::int64_t> ());
 }
 

@@ -54,9 +54,9 @@ and was abandoned.
 
 The remainder of this section describes the Consensus and Validation algorithms
 in more detail and is meant as a companion guide to understanding the generic
-implementation in `rippled`.  The document **does not** discuss correctness,
+implementation in `ripple-alpha-core`.  The document **does not** discuss correctness,
 fault-tolerance or liveness properties of the algorithms or the full details of
-how they integrate within `rippled` to support the Ripple Consensus Ledger.
+how they integrate within `ripple-alpha-core` to support the Ripple Consensus Ledger.
 
 ## Consensus Overview
 

@@ -2,6 +2,7 @@
 /*
     
     Copyright (c) 2012, 2013 Ripple Labs Inc.
+    Copyright (c) 2019 Ripple Alpha Association.
 
     Permission to use, copy, modify, and/or distribute this software for any
     purpose  with  or without fee is hereby granted, provided that the above
@@ -117,7 +118,7 @@ toStep (
 
     if (isXRP (curIssue.currency) && isXRP (outCurrency))
     {
-        JLOG (j.warn()) << "Found xrp/xrp offer payment step";
+        JLOG (j.warn()) << "Found xla/xla offer payment step";
         return {temBAD_PATH, std::unique_ptr<Step>{}};
     }
 

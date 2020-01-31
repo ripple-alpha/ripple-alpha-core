@@ -2,6 +2,7 @@
 /*
     
     Copyright (c) 2012, 2013 Ripple Labs Inc.
+    Copyright (c) 2019 Ripple Alpha Association.
 
     Permission to use, copy, modify, and/or distribute this software for any
     purpose  with  or without fee is hereby granted, provided that the above
@@ -210,7 +211,7 @@ TER PathState::pushNode (
     }
     else if (hasIssuer && isXRP (node.issue_))
     {
-        JLOG (j_.debug()) << "pushNode: issuer specified for XRP.";
+        JLOG (j_.debug()) << "pushNode: issuer specified for XLA.";
 
         resultCode = temBAD_PATH;
     }
@@ -441,7 +442,7 @@ TER PathState::expandPath (
         || (isXRP (currencyOutID) && !isXRP (issuerOutID)))
     {
         JLOG (j_.debug())
-            << "expandPath> issuer with XRP";
+            << "expandPath> issuer with XLA";
         terStatus   = temBAD_PATH;
     }
 

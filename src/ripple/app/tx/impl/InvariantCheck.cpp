@@ -2,6 +2,7 @@
 /*
   
   Copyright (c) 2012-2016 Ripple Labs Inc.
+  Copyright (c) 2019 Ripple Alpha Association.
 
   Permission to use, copy, modify, and/or distribute this software for any
   purpose  with  or without fee is hereby granted, provided that the above
@@ -135,7 +136,7 @@ XRPNotCreated::finalize(
     if (drops_ > 0)
     {
         JLOG(j.fatal()) <<
-            "Invariant failed: XRP net change was positive: " << drops_;
+            "Invariant failed: XLA net change was positive: " << drops_;
         return false;
     }
 
@@ -143,7 +144,7 @@ XRPNotCreated::finalize(
     if (-drops_ != fee.drops())
     {
         JLOG(j.fatal()) <<
-            "Invariant failed: XRP net change of " << drops_ <<
+            "Invariant failed: XLA net change of " << drops_ <<
             " doesn't match fee " << fee.drops();
         return false;
     }
@@ -195,7 +196,7 @@ XRPBalanceChecks::finalize(
 {
     if (bad_)
     {
-        JLOG(j.fatal()) << "Invariant failed: incorrect account XRP balance";
+        JLOG(j.fatal()) << "Invariant failed: incorrect account XLA balance";
         return false;
     }
 
@@ -424,7 +425,7 @@ NoXRPTrustLines::finalize(
     if (! xrpTrustLine_)
         return true;
 
-    JLOG(j.fatal()) << "Invariant failed: an XRP trust line was created";
+    JLOG(j.fatal()) << "Invariant failed: an XLA trust line was created";
     return false;
 }
 

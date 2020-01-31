@@ -2,6 +2,7 @@
 /*
     
     Copyright (c) 2012, 2013 Ripple Labs Inc.
+    Copyright (c) 2019 Ripple Alpha Association.
 
     Permission to use, copy, modify, and/or distribute this software for any
     purpose  with  or without fee is hereby granted, provided that the above
@@ -376,7 +377,7 @@ TER PathCursor::forwardLiquidityForAccount () const
 
                 JLOG (j_.trace())
                     << "forwardLiquidityForAccount: ^ --> "
-                    << "ACCOUNT -- !XRP --> offer";
+                    << "ACCOUNT -- !XLA --> offer";
 
                 // As the issuer, would only issue.
                 // Don't need to actually deliver. As from delivering leave in
@@ -386,7 +387,7 @@ TER PathCursor::forwardLiquidityForAccount () const
             {
                 JLOG (j_.trace())
                     << "forwardLiquidityForAccount: ^ --> "
-                    << "ACCOUNT -- XRP --> offer";
+                    << "ACCOUNT -- XLA --> offer";
 
                 // Deliver XRP to limbo.
                 resultCode = accountSend(view(),

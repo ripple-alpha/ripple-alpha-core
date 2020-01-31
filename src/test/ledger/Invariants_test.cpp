@@ -130,7 +130,7 @@ class Invariants_test : public beast::unit_test::suite
         testcase << "checks " << (enabled ? "enabled" : "disabled") <<
             " - XLA created";
         doInvariantCheck (enabled,
-            {{ "XRP net change was positive: 500" }},
+            {{ "XLA net change was positive: 500" }},
             [](Account const& A1, Account const&, ApplyContext& ac)
             {
                 // put a single account in the view and "manufacture" some XRP
@@ -202,7 +202,7 @@ class Invariants_test : public beast::unit_test::suite
             " - LE types don't match";
         doInvariantCheck (enabled,
             {{ "ledger entry type mismatch" },
-             { "XRP net change of -1000000000 doesn't match fee 0" }},
+             { "XLA net change of -1000000000 doesn't match fee 0" }},
             [](Account const& A1, Account const&, ApplyContext& ac)
             {
                 // replace an entry in the table with an SLE of a different type
@@ -240,7 +240,7 @@ class Invariants_test : public beast::unit_test::suite
         testcase << "checks " << (enabled ? "enabled" : "disabled") <<
             " - trust lines with XLA not allowed";
         doInvariantCheck (enabled,
-            {{ "an XRP trust line was created" }},
+            {{ "an XLA trust line was created" }},
             [](Account const& A1, Account const& A2, ApplyContext& ac)
             {
                 // create simple trust SLE with xrp currency
@@ -274,8 +274,8 @@ class Invariants_test : public beast::unit_test::suite
             });
 
         doInvariantCheck (enabled,
-            {{ "incorrect account XRP balance" },
-             {  "XRP net change was positive: 4999999000000001" }},
+            {{ "incorrect account XLA balance" },
+             {  "XLA net change was positive: 4999999000000001" }},
             [](Account const& A1, Account const&, ApplyContext& ac)
             {
                 // balance exceeds genesis amount
@@ -288,8 +288,8 @@ class Invariants_test : public beast::unit_test::suite
             });
 
         doInvariantCheck (enabled,
-            {{ "incorrect account XRP balance" },
-             { "XRP net change of -1000000001 doesn't match fee 0" }},
+            {{ "incorrect account XLA balance" },
+             { "XLA net change of -1000000001 doesn't match fee 0" }},
             [](Account const& A1, Account const&, ApplyContext& ac)
             {
                 // balance is negative
@@ -312,21 +312,21 @@ class Invariants_test : public beast::unit_test::suite
 
         doInvariantCheck (enabled,
             {{ "fee paid was negative: -1" },
-             { "XRP net change of 0 doesn't match fee -1" }},
+             { "XLA net change of 0 doesn't match fee -1" }},
             [](Account const&, Account const&, ApplyContext&) { return true; },
             XRPAmount{-1});
 
         doInvariantCheck (enabled,
             {{ "fee paid exceeds system limit: "s +
                 std::to_string(SYSTEM_CURRENCY_START) },
-             { "XRP net change of 0 doesn't match fee "s +
+             { "XLA net change of 0 doesn't match fee "s +
                 std::to_string(SYSTEM_CURRENCY_START) }},
             [](Account const&, Account const&, ApplyContext&) { return true; },
             XRPAmount{SYSTEM_CURRENCY_START});
 
          doInvariantCheck (enabled,
             {{ "fee paid is 20 exceeds fee specified in transaction." },
-             { "XRP net change of 0 doesn't match fee 20" }},
+             { "XLA net change of 0 doesn't match fee 20" }},
             [](Account const&, Account const&, ApplyContext&) { return true; },
             XRPAmount{20},
             STTx { ttACCOUNT_SET,
@@ -422,7 +422,7 @@ class Invariants_test : public beast::unit_test::suite
             });
 
         doInvariantCheck (enabled,
-            {{ "XRP net change of -1000000 doesn't match fee 0"},
+            {{ "XLA net change of -1000000 doesn't match fee 0"},
              {  "escrow specifies invalid amount" }},
             [](Account const& A1, Account const&, ApplyContext& ac)
             {
@@ -438,7 +438,7 @@ class Invariants_test : public beast::unit_test::suite
             });
 
         doInvariantCheck (enabled,
-            {{ "XRP net change was positive: 5000000000000001" },
+            {{ "XLA net change was positive: 5000000000000001" },
              {  "escrow specifies invalid amount" }},
             [](Account const& A1, Account const&, ApplyContext& ac)
             {

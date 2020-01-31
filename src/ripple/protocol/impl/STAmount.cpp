@@ -2,6 +2,7 @@
 /*
     
     Copyright (c) 2012, 2013 Ripple Labs Inc.
+    Copyright (c) 2019 Ripple Alpha Association.
 
     Permission to use, copy, modify, and/or distribute this software for any
     purpose  with  or without fee is hereby granted, provided that the above
@@ -777,7 +778,7 @@ amountFromString (Issue const& issue, std::string const& amount)
 
     // Can't specify XRP using fractional representation
     if (isXRP(issue) && match[3].matched)
-        Throw<std::runtime_error> ("XRP must be specified in integral drops.");
+        Throw<std::runtime_error> ("XLA must be specified in integral drops.");
 
     std::uint64_t mantissa;
     int exponent;
@@ -820,7 +821,7 @@ amountFromJson (SField const& name, Json::Value const& v)
 
     if (v.isNull())
     {
-        Throw<std::runtime_error> ("XRP may not be specified with a null Json value");
+        Throw<std::runtime_error> ("XLA may not be specified with a null Json value");
     }
     else if (v.isObject())
     {
@@ -863,7 +864,7 @@ amountFromJson (SField const& name, Json::Value const& v)
     if (native)
     {
         if (v.isObjectOrNull ())
-            Throw<std::runtime_error> ("XRP may not be specified as an object");
+            Throw<std::runtime_error> ("XLA may not be specified as an object");
         issue = xrpIssue ();
     }
     else

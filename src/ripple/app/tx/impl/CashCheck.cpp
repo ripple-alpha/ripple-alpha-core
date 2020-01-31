@@ -2,6 +2,7 @@
 /*
     
     Copyright (c) 2017 Ripple Labs Inc.
+    Copyright (c) 2019 Ripple Alpha Association.
 
     Permission to use, copy, modify, and/or distribute this software for any
     purpose  with  or without fee is hereby granted, provided that the above
@@ -310,7 +311,7 @@ CashCheck::doApply ()
             {
                 // Vote no. However the transaction might succeed if applied
                 // in a different order.
-                JLOG(j_.trace()) << "Cash Check: Insufficient XRP: "
+                JLOG(j_.trace()) << "Cash Check: Insufficient XLA: "
                     << srcLiquid.getFullText()
                     << " < " << xrpDeliver.getFullText();
                 return tecUNFUNDED_PAYMENT;

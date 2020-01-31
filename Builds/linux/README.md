@@ -52,7 +52,7 @@ the necessary components, see [this document](../../docs/README.md)
 From a shell:
 
 ```
-git clone git@github.com:ripple-alpha/ripple-alpha-core.git
+git clone https://github.com/ripple-alpha/ripple-alpha-core.git
 cd ripple-alpha-core
 ```
 
@@ -92,7 +92,7 @@ cd my_build
 followed by:
 
 ```
-cmake -DCMAKE_BUILD_TYPE=Debug ..
+cmake -DCMAKE_BUILD_TYPE=Release ..
 ```
 
 If your operating system does not provide static libraries (Arch Linux, and 

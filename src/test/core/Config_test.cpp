@@ -778,12 +778,12 @@ trustthesevalidators.gov
             cfg.section ("port_rpc").values ().empty ());
         BEAST_EXPECT (
             cfg.exists (SECTION_IPS) &&
-            cfg.section (SECTION_IPS).lines ().size () == 1 &&
-            cfg.section (SECTION_IPS).values ().size () == 1);
+            cfg.section (SECTION_IPS).lines ().size () == 2 &&
+            cfg.section (SECTION_IPS).values ().size () == 2);
         BEAST_EXPECT (
             cfg.exists (SECTION_IPS_FIXED) &&
-            cfg.section (SECTION_IPS_FIXED).lines ().size () == 2 &&
-            cfg.section (SECTION_IPS_FIXED).values ().size () == 2);
+            cfg.section (SECTION_IPS_FIXED).lines ().size () == 1 &&
+            cfg.section (SECTION_IPS_FIXED).values ().size () == 1);
 
     }
 

@@ -2,6 +2,7 @@
 /*
     
     Copyright (c) 2012, 2013 Ripple Labs Inc.
+    Copyright (c) 2019 Ripple Alpha Association.
 
     Permission to use, copy, modify, and/or distribute this software for any
     purpose  with  or without fee is hereby granted, provided that the above
@@ -250,7 +251,7 @@ bool Pathfinder::findPaths (int searchLevel)
         if (!bDstXrp)
         {
             JLOG (j_.debug())
-                    << "New account not being funded in XRP ";
+                    << "New account not being funded in XLA ";
             return false;
         }
 
@@ -270,31 +271,31 @@ bool Pathfinder::findPaths (int searchLevel)
     if (bSrcXrp && bDstXrp)
     {
         // XRP -> XRP
-        JLOG (j_.debug()) << "XRP to XRP payment";
+        JLOG (j_.debug()) << "XLA to XLA payment";
         paymentType = pt_XRP_to_XRP;
     }
     else if (bSrcXrp)
     {
-        // XRP -> non-XRP
-        JLOG (j_.debug()) << "XRP to non-XRP payment";
+        // XLA -> non-XLA
+        JLOG (j_.debug()) << "XLA to non-XLA payment";
         paymentType = pt_XRP_to_nonXRP;
     }
     else if (bDstXrp)
     {
-        // non-XRP -> XRP
-        JLOG (j_.debug()) << "non-XRP to XRP payment";
+        // non-XLA -> XLA
+        JLOG (j_.debug()) << "non-XLA to XLA payment";
         paymentType = pt_nonXRP_to_XRP;
     }
     else if (mSrcCurrency == mDstAmount.getCurrency ())
     {
-        // non-XRP -> non-XRP - Same currency
-        JLOG (j_.debug()) << "non-XRP to non-XRP - same currency";
+        // non-XLA -> non-XLA - Same currency
+        JLOG (j_.debug()) << "non-XLA to non-XLA - same currency";
         paymentType = pt_nonXRP_to_same;
     }
     else
     {
-        // non-XRP to non-XRP - Different currency
-        JLOG (j_.debug()) << "non-XRP to non-XRP - cross currency";
+        // non-XLA to non-XLA - Different currency
+        JLOG (j_.debug()) << "non-XLA to non-XLA - cross currency";
         paymentType = pt_nonXRP_to_nonXRP;
     }
 
@@ -908,7 +909,7 @@ void Pathfinder::addLink (
     bool const hasEffectiveDestination = mEffectiveDst != mDstAccount;
 
     JLOG (j_.trace()) << "addLink< flags="
-                                   << addFlags << " onXRP=" << bOnXRP;
+                                   << addFlags << " onXLA=" << bOnXRP;
     JLOG (j_.trace()) << currentPath.getJson (JsonOptions::none);
 
     if (addFlags & afADD_ACCOUNTS)

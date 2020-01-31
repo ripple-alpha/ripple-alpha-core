@@ -2,6 +2,7 @@
 /*
     
     Copyright (c) 2012, 2013 Ripple Labs Inc.
+    Copyright (c) 2019 Ripple Alpha Association.
 
     Permission to use, copy, modify, and/or distribute this software for any
     purpose  with  or without fee is hereby granted, provided that the above
@@ -94,7 +95,7 @@ CreateOffer::preflight (PreflightContext const& ctx)
     if (saTakerPays.native () && saTakerGets.native ())
     {
         JLOG(j.debug()) <<
-            "Malformed offer: redundant (XRP for XRP)";
+            "Malformed offer: redundant (XLA for XLA)";
         return temBAD_OFFER;
     }
     if (saTakerPays <= beast::zero || saTakerGets <= beast::zero)
@@ -344,7 +345,7 @@ CreateOffer::bridged_cross (
     assert (!isXRP (takerAmount.in) && !isXRP (takerAmount.out));
 
     if (isXRP (takerAmount.in) || isXRP (takerAmount.out))
-        Throw<std::logic_error> ("Bridging with XRP and an endpoint.");
+        Throw<std::logic_error> ("Bridging with XLA and an endpoint.");
 
     OfferStream offers_direct (view, view_cancel,
         Book (taker.issue_in (), taker.issue_out ()),
@@ -846,7 +847,7 @@ static std::string to_string (SBoxCmp c)
     case SBoxCmp::offerDelDiff:
         return "offer del diffs";
     case SBoxCmp::xrpRound:
-        return "XRP round to zero";
+        return "XLA round to zero";
     case SBoxCmp::diff:
         return "different";
     }
@@ -873,7 +874,7 @@ static SBoxCmp compareSandboxes (char const* name, ApplyContext const& ctx,
         {
             char const* const whichSide = side > 0 ? "; Flow" : "; Taker";
             j.stream (kWarning) << "FlowCross: " << name << " different" <<
-                whichSide << " XRP rounded to zero.  tx: " <<
+                whichSide << " XLA rounded to zero.  tx: " <<
                 ctx.tx.getTransactionID();
             return SBoxCmp::xrpRound;
         }
