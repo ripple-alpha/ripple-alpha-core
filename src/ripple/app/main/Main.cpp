@@ -116,7 +116,7 @@ adjustDescriptorLimit(int needed, beast::Journal j)
 void printHelp (const po::options_description& desc)
 {
     std::cerr
-        << systemName () << "d [options] <command> <params>\n"
+        << systemName () << "-core [options] <command> <params>\n"
         << desc << std::endl
         << "Commands: \n"
            "     account_currencies <account> [<ledger>] [strict]\n"
