@@ -526,11 +526,7 @@ OverlayImpl::onPrepare()
     // servers to serve as bootstrap:
     if (bootstrapIps.empty ())
     {
-        bootstrapIps.push_back("50.17.35.167 51236");
-        bootstrapIps.push_back("52.206.98.139 51236");
-        bootstrapIps.push_back("3.211.71.73 51236");
-        bootstrapIps.push_back("3.212.86.22 51236");
-        bootstrapIps.push_back("3.226.85.22 51236");
+        bootstrapIps.push_back("peers.ripplealpha.com 51236");
     }
 
     m_resolver.resolve (bootstrapIps,
