@@ -13,5 +13,5 @@
 If you've already installed older virsion of ripple-alpha-core and desire to upgrade to the latest one, run the following comannd.  
 ```# apt upgrade ripplealpha```
 
-To enable automatic upgrade, run the following commant.
+To enable automatic upgrade, run the following commant.  
 ```# ln -s /opt/ripple-alpha/etc/auto-upgrade-ripplealpha /etc/cron.d/```
