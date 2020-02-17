@@ -6,7 +6,7 @@ The XLA Ledger
 ---------------------
 The XLA Ledger is a decentralized cryptographic ledger powered by a network of peer-to-peer servers. The XLA Ledger uses a novel Byzantine Fault Tolerant consensus algorithm to settle and record transactions in a secure distributed database without a central operator.
 
-Insyall
+Install
 ---------------------
 * [Linux](Installs/linux.md)
 
